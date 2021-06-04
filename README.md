@@ -1,4 +1,4 @@
-# Django Deployment Strategy
+# Django Deployment Strategy: proofofsuccess.jtfoxx.com
 
 ## Basic deployment: Ubuntu, NGinx, Gunicorn
 
