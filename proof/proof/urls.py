@@ -26,5 +26,5 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_title = "Real Estate Lifetime Program"
-admin.site.site_header = "Real Estate Lifetime Program - Admin Area"
+admin.site.site_title = "Proof of Success Program"
+admin.site.site_header = "Proof of Success Program - Admin Area"
