@@ -91,7 +91,7 @@ h4 {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  
+
 }
 .expert-boxes img {
   width: 100%;
@@ -169,7 +169,7 @@ h4 {
 .box {
   border: 1px solid #f5f5f5;
   box-shadow: 5px 5px 5px #ededed;
-  height: 284px;
+  min-height: 234px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
