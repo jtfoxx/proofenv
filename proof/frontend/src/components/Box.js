@@ -7,8 +7,7 @@ function Box({ program }) {
       <Link to={"/program/" + program.id} style={{ textDecoration: "none" }}>
         <img src={program.image} alt={program.title} class="img-fluid" />
       </Link>
-      <div class="box-content">
-        <h4 className="py-1">{program.name}</h4>
+      <div className="box-content text-center">
         <Link className="btn-blue mb-2" to={"/program/" + program.id}>
           Get Started
         </Link>
