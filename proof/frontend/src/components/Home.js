@@ -13,7 +13,7 @@ function Home(props) {
       <section className="header">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 col-12">
+            <div className="col-lg- col-12">
               <h1>PROOF OF SUCCESS PROGRAM</h1>
               <h2>Your Quickest Path to Getting Results!</h2>
               <Link className="custombtn" to="/modules">
