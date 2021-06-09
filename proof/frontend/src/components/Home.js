@@ -10,12 +10,12 @@ function Home(props) {
 
   return (
     <React.Fragment>
-      <section class="header">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-12">
+      <section className="header">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 col-12">
               <h1>PROOF OF SUCCESS PROGRAM</h1>
-              <h2>A Never-Ending LIVE Real Estate Investing Course</h2>
+              <h2>Your Quickest Path to Getting Results!</h2>
               <Link className="custombtn" to="/modules">
                 GO TO MODULES
               </Link>
@@ -23,86 +23,56 @@ function Home(props) {
           </div>
         </div>
       </section>
-      <section class="about-program py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="border-green border-bottom-right">
-                <img
-                  src="/media/images/frontend/twomillionaires.jpg"
-                  class="img-fluid"
-                  alt="Two Millionaires"
-                />
-              </div>
-            </div>
-            <div class="col-md-5 offset-md-1 pt-5">
-              <h1>ABOUT THE PROGRAM</h1>
-              <h2 class="subtitle">Learn by DOING!</h2>
-              <p class="text-grey font-18 py-3">
-                Follow along two real estate multi-millionaires doing their very
-                own deals in real-time. The program is broken down by each
-                property project from start to finish. Some of these properties
-                are still in the works, so check back later for the end results!
+
+      <section className="about-program py-5">
+        <div className="container">
+              <div className="about-program__header ">
+                <h1>ABOUT THE PROGRAM</h1>
+              </div>              
+              <h2 className="subtitle">Learn by DOING!</h2>
+              <p className="text-grey font-18 py-3">
+              Too many programs are horizontal in nature. They just scratch the surface of wealth building, but the “Proof of Success” program is going to change the game for online learning and content. Filled with breakthroughs and advanced real-life business strategies that will work for you instantly, it’s strategies that worked yesterday, today and will work for you tomorrow.
               </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section class="the-experts py-5">
-        <div class="container">
-          <div class="row">
+      <section className="the-experts py-5">
+        <div className="container">
             <h1>THE EXPERTS</h1>
-            <p class="text-grey font-18">
+            <p className="font-18 mb-5">
               The hosts of your program and who you'll be learning from...
             </p>
-            <div class="col-md-6 mt-3">
-              <div class="border-green border-top-left">
-                <img
-                  src="/media/images/frontend/jt.jpg"
-                  class="img-fluid"
-                  alt="JT Foxx"
-                />
-                <div class="about-speaker">
-                  <div class="inner">
-                    <h2>JT Foxx</h2>
-                    <p>
-                      Becoming a top real estate investor or entrepreneur
-                      requires persistence, ambition, effort, loyalty,
-                      commitment and a strong work ethic. JT started with
-                      nothing and grew his real estate empire over time. Now, he
-                      teaches people like you exactly what he did with buying
-                      properties below-market. There's no such thing as "get
-                      rich quick", but if you follow his steps, we assure you
-                      that you'll get there soon.{" "}
-                    </p>
-                  </div>
-                </div>
+
+            <div className="expert-boxes">
+              <div className="expert">
+                <img src="/media/images/frontend/jtfoxx.jpg" alt="JT Foxx"/>
+                <h6>JT Foxx</h6>
+                <i>World’s #1 Wealth & Business Coach and entrepreneur of many companies and brands</i>
+              </div>
+              <div className="expert">
+                <img src="/media/images/frontend/george-ross.jpeg" alt="George Ross"/>
+                <h6>George Ross</h6>
+                <i>JT Foxx’s Coach & Celebrity Apprentice Judge</i>
+              </div>
+              <div className="expert">
+                <img src="/media/images/frontend/hugh-hilton.jpg" alt="Hugh Hilton"/>
+                <h6>Hugh Hilton</h6>
+                <i>JT Foxx’s Coach & Property & Business Mogul</i>
               </div>
             </div>
-            <div class="col-md-6 mt-3">
-              <div class="border-green border-bottom-right">
-                <img
-                  src="/media/images/frontend/paulie.jpg"
-                  class="img-fluid"
-                  alt="Paulie"
-                />
-                <div class="about-speaker">
-                  <div class="inner">
-                    <h2>Paulie K.</h2>
-                    <p>
-                      Paulie K. is one of the top real estate investors in the
-                      U.S. as well as a highly successful entrepreneur, author,
-                      speaker, and TV personality. He is the owner and CEO of
-                      Rev Homes, LLC. He has been featured on A&E’s Bid, Build
-                      and Design and he was also the subject of a documentary
-                      called The 24-hour Entrepreneur.
-                    </p>
-                  </div>
-                </div>
+            <div className="expert-boxes">
+              <div className="expert">
+                <img src="/media/images/frontend/mike-slade.jpg" alt="Mike Slade"/>
+                <h6>Mike Slade</h6>
+                <i>JT Foxx’s Coach & Venture Capitalist who worked for Steve Job and Bill Gates. Created ESPN.com and sold to ABC (now Disney)</i>
+              </div>
+              <div className="expert">
+                <img src="/media/images/frontend/tycoonx.jpg" alt="Tycoon X"/>
+                <h6>Tycoon X</h6>
+                <i>JT Foxx's Coach & 10-Figure Property Tycoon</i>
               </div>
             </div>
-          </div>
+
         </div>
       </section>
 
