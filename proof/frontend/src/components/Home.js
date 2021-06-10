@@ -109,13 +109,13 @@ function Home(props) {
                 <img
                   src="/media/images/frontend/mike-slade.jpg"
                   class="img-fluid"
-                  alt="Tycoon X"
+                  alt="Mike Slade"
                 />
                 <div class="about-speaker">
                   <div class="inner">
-                    <h2>Tycoon X</h2>
+                    <h2>Mike Slade</h2>
                     <p>
-                    JT Foxx's Coach & 10-Figure Property Tycoon
+                    JT Foxx’s Coach & Venture Capitalist who worked for Steve Job and Bill Gates. Created ESPN.com and sold to ABC (now Disney)
                     </p>
                   </div>
                 </div>
@@ -127,13 +127,13 @@ function Home(props) {
                 <img
                   src="/media/images/frontend/tycoonx.jpg"
                   class="img-fluid"
-                  alt="Mike Slade"
+                  alt="Tycoon X"
                 />
                 <div class="about-speaker">
                   <div class="inner">
-                    <h2>Mike Slade</h2>
+                    <h2>Tycoon X</h2>
                     <p>
-                    JT Foxx’s Coach & Venture Capitalist who worked for Steve Job and Bill Gates. Created ESPN.com and sold to ABC (now Disney)
+                    JT Foxx's Coach & 10-Figure Property Tycoon
                     </p>
                   </div>
                 </div>
