@@ -90,6 +90,7 @@ function Home(props) {
                 <img
                   src="/media/images/frontend/hugh-hilton.jpg"
                   class="img-fluid"
+                  style={{'object-position': '-50px bottom'}}
                   alt="Hugh Hilton"
                 />
                 <div class="about-speaker">
@@ -130,7 +131,7 @@ function Home(props) {
                 />
                 <div class="about-speaker">
                   <div class="inner">
-                    <h2>Tycoon X</h2>
+                    <h2>Mike Slade</h2>
                     <p>
                     JT Foxx’s Coach & Venture Capitalist who worked for Steve Job and Bill Gates. Created ESPN.com and sold to ABC (now Disney)
                     </p>

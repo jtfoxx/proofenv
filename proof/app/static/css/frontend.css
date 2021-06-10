@@ -3,6 +3,11 @@
   --primary-color: #B5E4F4;
   --bg-color: #0D2739;
 }
+
+#root {
+  position: relative;
+}
+
 body {
   /* background: var(--bg-color); */
   /* color: #fff; */
@@ -195,7 +200,9 @@ h4 {
   height: 61px;
   text-align: center;
   text-decoration: none;
-  font: normal 18px "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: clamp(15px, 2vw, 18px);
   color: #fff;
   background: rgb(56, 74, 211) url(/media/images/frontend/custombtn.png)
     repeat-x 50% 50%;
@@ -207,6 +214,7 @@ h4 {
 }
 
 .footer {
+  margin-top: 45vh;
   background: #757575;
   color: #c7c7c7;
   font-size: 13px;
