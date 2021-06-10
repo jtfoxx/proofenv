@@ -5,7 +5,7 @@ import Box from "./Box";
 function Home(props) {
   let featuredPrograms = props.programs.map((program, i) => {
     const ids = [2, 4, 5];
-    if (i >= 3 && !ids.includes(program.id)) return;
+    if (i >= 3 && ids.includes(program.id)) return;
     return <Box key={i} program={program} />;
   });
 
