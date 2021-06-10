@@ -19,6 +19,6 @@ urlpatterns = [
     path("logout_page/", views.logout_page, name="logout_page"),
     path("api/", include(router.urls)),
     path("accounts/", include("django.contrib.auth.urls")),
-    re_path(r'.*/', home),
+    # re_path(r'.*/', home),
 
 ]
