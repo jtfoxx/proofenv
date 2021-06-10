@@ -150,12 +150,15 @@ function Home(props) {
       <section className="featured-modules py-5">
         <div className="container">
           <div className="row">
-            <h1 className="d-flex justify-content-between pb-5">
+            <h1 className="col-md-8 pb-5">
               FEATURED MODULES
+            </h1>
+            <div class="col-md-4">
               <Link className="custombtn" to="/modules">
                 GO TO ALL MODULES >>
               </Link>
-            </h1>
+            </div>
+                          
             <div className="boxes">{featuredPrograms}</div>
           </div>
         </div>
