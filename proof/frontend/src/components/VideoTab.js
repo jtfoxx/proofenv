@@ -74,7 +74,7 @@ export default function VideoTab(props) {
           {videos.map((video, i) => (
             <Tab
               key={i}
-              label={"Session " + video.day}
+              label={video.title}
               icon={<OndemandVideoIcon />}
               {...a11yProps(i)}
             />
