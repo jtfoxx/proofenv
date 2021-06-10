@@ -153,8 +153,7 @@ h4 {
   margin-top: 10px;
   border: 1px solid #f5f5f5;
   box-shadow: 5px 5px 5px #ededed;
-  height: 234px;
-  overflow-y: scroll;
+  min-height: 244px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
