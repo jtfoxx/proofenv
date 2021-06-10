@@ -225,3 +225,12 @@ h4 {
     max-width: 980px;
   }
 }
+
+@media (max-width: 750px) {
+  .header .col-12, .about-program > *, .the-experts > * {
+    text-align: center;
+  }
+  .header .custombtn {
+    margin: 0 auto;
+  }
+}
