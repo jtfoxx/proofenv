@@ -6,7 +6,7 @@ function Modules(props) {
   return (
     <section class="modules py-5">
       <div className="container">
-        <h1 className="pb-5">ALL MODULES</h1>
+        <h1 className="pb-5 text-center">ALL MODULES</h1>
         <div className="boxes">
           {props.programs.map((program, i) => (
             <Box program={program} key={i} />
