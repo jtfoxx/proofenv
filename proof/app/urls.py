@@ -13,7 +13,7 @@ router.register("assets",
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("add_user", views.add_user, name="add_user"),
+    path("add_user/", views.add_user, name="add_user"),
     path("login_page/", views.LoginView.as_view(), name="login_page"),
     path("logged_in", views.logged_in, name="logged_in"),
     path("logout_page/", views.logout_page, name="logout_page"),
