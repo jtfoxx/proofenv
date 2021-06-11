@@ -96,8 +96,8 @@ export default function Video({ video }) {
                 allowFullScreen
               ></iframe>
             ) : (
-              <audio controls controlsList="nodownload">
-                <source src={video.url} type="audio/mpeg" />
+              <audio id={video.id} controls controlsList="nodownload" src={video.url}>
+                {/* <source src={video.url} type="audio/mpeg" /> */}
                 Your browser does not support the audio element.
               </audio>
             )}

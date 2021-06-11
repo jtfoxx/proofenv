@@ -70,7 +70,7 @@ export default function VideoTab(props) {
           indicatorColor="secondary"
           textColor="secondary"
           aria-label="scrollable force tabs example"
-          style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
+          style={{margin: '0 auto'}}
         >
           {videos.map((video, i) => (
             <Tab
