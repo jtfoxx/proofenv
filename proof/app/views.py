@@ -82,7 +82,7 @@ def add_user(request):
     Email = request.POST["Email"]
     FirstName = request.POST["FirstName"]
     LastName = request.POST["LastName"]
-    role = request.GET.get('role', 'level1')
+    role = request.POST.get('role', 'level1')
 
     try:
         u = User.objects.create_user(
