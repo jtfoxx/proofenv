@@ -43,7 +43,6 @@ class User(AbstractUser):
     email = models.CharField(max_length=50, blank=True, null=True)
     role = models.CharField(
         max_length=50,
-        choices=ROLES,
         default="level1",
     )
     is_staff = models.BooleanField(blank=True, default=0)

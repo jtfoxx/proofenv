@@ -2,7 +2,7 @@ from django.contrib import admin
 from app.models import User, Program, Asset
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
-from app.forms import ProgramAdminForm
+from app.forms import ProgramAdminForm, UserAdminForm
 from django import forms
 from app.models import ROLES
 
@@ -24,6 +24,8 @@ class UserAdmin(admin.ModelAdmin):
         ("role", "is_active"),
         ("last_login", "date_joined"),
     )
+
+    form = UserAdminForm
 
     def save_model(self, request, instance, form, changes):
         if instance.pk:
