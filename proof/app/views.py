@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render, reverse
 from rest_framework import viewsets, permissions
 from django.contrib.auth.decorators import login_required
@@ -11,6 +12,7 @@ from app.models import Asset, User, Program
 from app.serializers import ProgramSerializer, AssetSerializer
 from django.db.models import Q
 from django.db import IntegrityError
+import copy
 
 
 class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
@@ -18,10 +20,22 @@ class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+
+        user_role = copy.copy(self.request.user.role)
+
         if self.request.user.is_superuser:
             return Program.objects.all().order_by("idx")
         else:
-            return Program.objects.filter(Q(role__icontains=self.request.user.role)).order_by("idx")
+            programs = False
+            for role in user_role.strip("][").replace("'", "").split(','):
+                role = role.strip()
+                p = Program.objects.filter(
+                    role__icontains=role).order_by("idx")
+                if programs:
+                    programs = programs | p
+                else:
+                    programs = p
+            return programs
 
 
 class AssetViewSet(viewsets.ReadOnlyModelViewSet):
