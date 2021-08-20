@@ -1,8 +1,8 @@
 from django.contrib import admin
-from app.models import User, Program, Asset
+from app.models import Category, User, Program, Asset
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
-from app.forms import ProgramAdminForm, UserAdminForm
+from app.forms import CategoryAdminForm, UserAdminForm
 from django import forms
 from app.models import ROLES
 
@@ -38,9 +38,9 @@ class UserAdmin(admin.ModelAdmin):
 
 
 class ProgramAdmin(admin.ModelAdmin):
-    list_display = ("name", "image", "role", "idx")
-    search_fields = ("nane", "role")
-    form = ProgramAdminForm
+    list_display = ("category", "name", "image", "idx")
+    search_fields = ("name",)
+    list_filter = ("category",)
 
 
 class AssetAdmin(admin.ModelAdmin):
@@ -48,7 +48,13 @@ class AssetAdmin(admin.ModelAdmin):
     search_fields = ("title", "url", "description", "role")
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("name", "role", "idx")
+    form = CategoryAdminForm
+
+
 admin.site.register(User, UserAdmin)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Asset, AssetAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.unregister(Group)

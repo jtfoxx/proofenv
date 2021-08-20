@@ -135,6 +135,20 @@ h4 {
   flex-direction: column;
   justify-content: space-between;
 }
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 150px);
+  grid-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.category {
+  text-align: center;
+}
+.category a {
+  color: black;
+}
+
 .box-content {
   padding: 5px 20px 10px 20px;
 }

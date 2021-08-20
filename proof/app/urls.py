@@ -6,7 +6,12 @@ from frontend.views import home
 app_name = "app"
 
 router = routers.DefaultRouter()
-router.register("programs", views.ProgramViewSet, basename='program')
+router.register("category-list", views.CategoryListViewSet,
+                basename='category-list')
+router.register("program-list", views.ProgramListViewSet,
+                basename='program-list')
+router.register("program-detail", views.ProgramDetailViewSet,
+                basename='program-detail')
 router.register("assets",
                 views.AssetViewSet, basename='asset')
 

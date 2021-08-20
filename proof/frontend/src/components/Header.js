@@ -31,7 +31,7 @@ export default function Header(props) {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/modules"
+                to="/categories"
               >
                 Modules
               </Link>

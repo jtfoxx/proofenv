@@ -5,11 +5,24 @@ ROLES = (("level1", "Level 1"), ("level2", "Level 2"),
          ("level3", "Level 3"), ("admin", "Admin"))
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=50, blank=True)
+    idx = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+
 class Program(models.Model):
+    category = models.ForeignKey(
+        'Category', blank=True, null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=100)
     image = models.ImageField(
         upload_to='images/programs', blank=True, null=True)
-    role = models.CharField(max_length=50, blank=True)
     idx = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):

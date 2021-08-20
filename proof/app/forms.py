@@ -21,11 +21,11 @@ class UserAdminForm(forms.ModelForm):
         fields = "__all__"
 
 
-class ProgramAdminForm(forms.ModelForm):
+class CategoryAdminForm(forms.ModelForm):
     name = forms.CharField(max_length=100)
 
     def __init__(self, *args, **kwargs):
-        super(ProgramAdminForm, self).__init__(*args, **kwargs)
+        super(CategoryAdminForm, self).__init__(*args, **kwargs)
         # Convert string to python list
         if self.instance.role:
             self.initial["role"] = (
@@ -38,5 +38,5 @@ class ProgramAdminForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Program
+        model = Category
         fields = "__all__"

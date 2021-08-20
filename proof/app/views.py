@@ -8,34 +8,61 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
-from app.models import Asset, User, Program
-from app.serializers import ProgramSerializer, AssetSerializer
+from app.models import *
+from app.serializers import CategorySerializer, ProgramSerializer, AssetSerializer
 from django.db.models import Q
 from django.db import IntegrityError
 import copy
 
 
-class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
+def get_by_role(user_role, **kwargs):
+    categories = False
+    for role in user_role.strip("][").replace("'", "").split(','):
+        role = role.strip()
+        c = Category.objects.filter(
+            role__icontains=role, **kwargs).order_by("idx")
+        if categories:
+            categories = categories | c
+        else:
+            categories = c
+    return categories
+
+
+class CategoryListViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = CategorySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user_role = copy.copy(self.request.user.role)
+        if self.request.user.is_superuser:
+            return Category.objects.all().order_by("idx")
+        else:
+            categories = get_by_role(user_role)
+            return categories
+
+
+class ProgramListViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ProgramSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        user_role = copy.copy(self.request.user.role)
+        category = self.request.GET.get('category')
+        return Program.objects.filter(category=category).order_by("idx")
 
+
+class ProgramDetailViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = ProgramSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
         user_role = copy.copy(self.request.user.role)
 
         if self.request.user.is_superuser:
-            return Program.objects.all().order_by("idx")
+            return Program.objects.filter(pk=self.request.GET.get('program_id'))
         else:
-            programs = False
-            for role in user_role.strip("][").replace("'", "").split(','):
-                role = role.strip()
-                p = Program.objects.filter(
-                    role__icontains=role).order_by("idx")
-                if programs:
-                    programs = programs | p
-                else:
-                    programs = p
-            return programs
+            return Program.objects.filter(pk=self.request.GET.get('program_id'))
+            # return get_programs_by_role(user_role, pk=self.request.GET.get('program_id'))
 
 
 class AssetViewSet(viewsets.ReadOnlyModelViewSet):
