@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Resources from "../pages/Resources";
 
 import { getPrograms, getCategories, getVideos } from "../api";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Modules from "../pages/Modules";
 import Categories from "../pages/Categories";
 import ProgramList from "./ProgramList";
@@ -14,7 +14,6 @@ import ProgramList from "./ProgramList";
 export default class App extends Component {
   state = {
     categories: [],
-    programs: [],
     user: {},
   };
   async componentDidMount() {
@@ -25,7 +24,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Header user={this.state.user} />
+        <Header user={this.state.user} categories={this.state.categories} />
         <Switch>
           <Route path="/categories">
             <Categories categories={this.state.categories} />
@@ -36,7 +35,7 @@ export default class App extends Component {
           <Route path="/program-list/:category" component={ProgramList} />
           <Route path="/program/:program_id" component={Program} />
           <Route path="/">
-            <Home programs={this.state.programs} />
+            <Home categories={this.state.categories} />
           </Route>
         </Switch>
         <Footer />

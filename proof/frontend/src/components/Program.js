@@ -10,7 +10,7 @@ import { getAssets } from "../api";
 
 class Program extends Component {
   state = {
-    videos: []
+    videos: [],
   };
 
   async componentDidMount() {
@@ -18,7 +18,7 @@ class Program extends Component {
     this.setState({ videos });
   }
 
-  componentDidUpdate = async prevProps => {
+  componentDidUpdate = async (prevProps) => {
     if (
       this.props.match.params.program_id !== prevProps.match.params.program_id
     ) {

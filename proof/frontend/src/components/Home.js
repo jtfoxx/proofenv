@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Box from "./Box";
+import CategoriesDialog from "./CategoriesDialog";
 
 function Home(props) {
-  let featuredPrograms = props.programs.map((program, i) => {
-    const ids = [2, 4, 5];
-    if (ids.includes(program.id)) return <Box key={i} program={program} />;
-  });
-
   return (
     <React.Fragment>
       <section className="header">
@@ -16,9 +12,7 @@ function Home(props) {
             <div className="col-12">
               <h1>PROOF OF SUCCESS PROGRAM</h1>
               <h2>Your Quickest Path to Getting Results!</h2>
-              <Link className="custombtn" to="/categories">
-                GO TO MODULES
-              </Link>
+              <CategoriesDialog categories={props?.categories} />
             </div>
           </div>
         </div>

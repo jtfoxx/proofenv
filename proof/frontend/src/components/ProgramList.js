@@ -10,7 +10,7 @@ function ProgramList(props) {
       const programs = await getPrograms(props.match.params.category);
       setPrograms(programs);
     })();
-  }, []);
+  }, [props.match.params.category]);
 
   return (
     <section class="modules py-5">

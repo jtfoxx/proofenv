@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <base href="/" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
@@ -11,30 +12,28 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="{% static 'css/frontend.css' %}" />    
+    <link rel="stylesheet" href="{% static 'css/frontend.css' %}" />
     <title>Proof of Success Program</title>
   </head>
   <body>
-
     <div id="root"></div>
   </body>
 
-        <script>
-        window.django = {
-            csrf: "{{ csrf_token }}",
-            urls: {
-                logout: "{% url "app:logout" %}",
-                staticRoot: "{% static "" %}",
-            },
-            user: {
-                username: "{{ request.user.username }}",
-                full_name: "{{ request.user.get_full_name }}",
-                last_login: "{{ request.user.last_login }}",
-            }
-        };
-        </script>
+  <script>
+    window.django = {
+        csrf: "{{ csrf_token }}",
+        urls: {
+            logout: "{% url "app:logout" %}",
+            staticRoot: "{% static "" %}",
+        },
+        user: {
+            username: "{{ request.user.username }}",
+            full_name: "{{ request.user.get_full_name }}",
+            last_login: "{{ request.user.last_login }}",
+        }
+    };
+  </script>
 
   <script src="{% static 'frontend/main.js' %}?v=1.0"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
-
 </html>
