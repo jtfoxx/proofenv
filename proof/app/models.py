@@ -8,6 +8,8 @@ ROLES = (("level1", "Level 1"), ("level2", "Level 2"),
 class Category(models.Model):
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(
+        upload_to="images/categories", blank=True, null=True)
     idx = models.PositiveIntegerField()
 
     def __str__(self):
