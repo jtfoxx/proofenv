@@ -9,7 +9,7 @@ function Box({ program }) {
       </Link>
       <div className="box-content text-center">
         <Link className="btn-blue mb-2" to={"/program/" + program.id}>
-          {program.title}
+          {program.name}
         </Link>
       </div>
     </div>
