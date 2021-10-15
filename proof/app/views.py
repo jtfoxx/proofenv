@@ -13,6 +13,7 @@ from app.serializers import CategorySerializer, ProgramSerializer, AssetSerializ
 from django.db.models import Q
 from django.db import IntegrityError
 import copy
+import re
 
 
 def get_by_role(user_role, **kwargs):
@@ -125,12 +126,17 @@ def add_user(request):
     LastName = request.POST["LastName"]
     role = request.POST.get('role', 'level1')
 
-    try:
+    u = User.objects.get(username=Email)
+    if u:
+        roles = re.sub('[\]\[\s\']', '', u.role)
+        roles = roles.split(',')
+        roles.append(role)
+        u.role = roles
+        u.save()
+    else:
         u = User.objects.create_user(
             username=Email, password=Id, first_name=FirstName, last_name=LastName, role=role
         )
-    except IntegrityError:
-        return HttpResponse("User already exists")
 
     if u is not None:
         return HttpResponse("Added %s" % u.username)
