@@ -136,7 +136,7 @@ def add_user(request):
             u.save()
     except User.DoesNotExist:
         u = User.objects.create_user(
-            username=Email, password=Id, first_name=FirstName, last_name=LastName, role=f"['{role}']"
+            username=Email, password=Id, first_name=FirstName, last_name=LastName, role=role
         )
 
     if u is not None:
