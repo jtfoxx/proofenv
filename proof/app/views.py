@@ -126,16 +126,17 @@ def add_user(request):
     LastName = request.POST["LastName"]
     role = request.POST.get('role', 'level1')
 
-    u = User.objects.get(username=Email)
-    if u:
-        roles = re.sub('[\]\[\s\']', '', u.role)
-        roles = roles.split(',')
-        roles.append(role)
-        u.role = roles
-        u.save()
-    else:
+    try:
+        u = User.objects.get(username=Email)
+        if role not in u.role:
+            roles = re.sub('[\]\[\s\']', '', u.role)
+            roles = roles.split(',')
+            roles.append(role)
+            u.role = roles
+            u.save()
+    except User.DoesNotExist:
         u = User.objects.create_user(
-            username=Email, password=Id, first_name=FirstName, last_name=LastName, role=role
+            username=Email, password=Id, first_name=FirstName, last_name=LastName, role=f"['{role}']"
         )
 
     if u is not None:
