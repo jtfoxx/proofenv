@@ -128,8 +128,8 @@ def add_user(request):
     else:
         try:
             data = json.loads(request.body)
-        except json.JSONDecodeError:
-            return HttpResponse("Invalid JSON data", status=400) 
+        except json.JSONDecodeError as e:
+            return HttpResponse(e.msg, status=400) 
             
     # Try to extract data from POST variables
     Id = data.get("Id")
