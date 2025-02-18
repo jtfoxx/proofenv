@@ -121,38 +121,23 @@ def logged_in(request):
 
 @csrf_exempt
 def add_user(request):
-    # Default values
-    Id = None
-    Email = None
-    FirstName = None
-    LastName = None
-    role = 'level1'
 
-    # Check if request is POST and contains form data
-    if request.method == 'POST':
-        # Try to extract data from POST variables
-        Id = request.POST.get("Id")
-        Email = request.POST.get("Email")
-        FirstName = request.POST.get("FirstName")
-        LastName = request.POST.get("LastName")
-        role = request.POST.get('role', 'level1')
-
-        # If POST variables are missing, check JSON body
-        if not all([Id, Email, FirstName, LastName]):
-            try:
-                body_unicode = request.body.decode('utf-8')
-                body_data = json.loads(body_unicode)
-                Id = body_data.get("Id")
-                Email = body_data.get("Email")
-                FirstName = body_data.get("FirstName")
-                LastName = body_data.get("LastName")
-                role = body_data.get('role', 'level1')
-            except json.JSONDecodeError:
-                return HttpResponse("Invalid JSON data", status=400)
-
-    if not all([Id, Email, FirstName, LastName]):
-        return HttpResponse("Missing required fields", status=400)
-
+    # Check for POST data first; fallback to request.body
+    if request.POST:
+        data = request.POST
+    else:
+        try:
+            data = json.loads(request.body)
+        except json.JSONDecodeError:
+            return HttpResponse("Invalid JSON data", status=400) 
+            
+    # Try to extract data from POST variables
+    Id = data.get("Id")
+    Email = data.get("Email")
+    FirstName = data.get("FirstName")
+    LastName = data.get("LastName")
+    role = data.get('role', 'level1')            
+        
     try:
         u = User.objects.get(username=Email)
         if role not in u.role:
